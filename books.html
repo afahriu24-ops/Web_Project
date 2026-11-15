@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inkwell Books - Products</title>
+    <link rel="stylesheet" href="style/admin.css">
+    <link rel="stylesheet" href="style/inkwell.css">
+</head>
+<body class="admin-page">
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h5><span class="brand-mark" aria-hidden="true">I</span><span>Inkwell Books</span></h5>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-section-title">MAIN</li>
+            <li>
+                <a href="admin.html">
+                    <span class="icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="orders.html">
+                    <span class="icon">🛍️</span>
+                    <span>Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="books.html" class="active">
+                    <span class="icon">📚</span>
+                    <span>Books</span>
+                </a>
+            </li>
+            <li>
+                <a href="customers.html">
+                    <span class="icon">👥</span>
+                    <span>Customers</span>
+                </a>
+            </li>
+
+            <li class="sidebar-section-title">STORE</li>
+            <li>
+                <a href="revenue.html">
+                    <span class="icon">💲</span>
+                    <span>Revenue</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+
+        <div class="topbar">
+            <h3>Books Management</h3>
+            <a href="account.html" class="account-link" title="Account">
+                <span>👤</span>
+                <span>Admin</span>
+            </a>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-card-icon">📚</div>
+                <h6>Total Books</h6>
+                <h3 id="totalProductsCount">0</h3>
+                <p class="stat-card-change"><span id="totalProductsChange">0 total books</span></p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">✅</div>
+                <h6>In Stock</h6>
+                <h3 id="inStockCount">0</h3>
+                <p class="stat-card-change"><span id="inStockChange">Good availability</span></p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">⚠️</div>
+                <h6>Low Stock</h6>
+                <h3 id="lowStockCount">0</h3>
+                <p class="stat-card-change"><span id="lowStockChange">Needs attention</span></p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-icon">🚫</div>
+                <h6>Out of Stock</h6>
+                <h3 id="outOfStockCount">0</h3>
+                <p class="stat-card-change"><span id="outOfStockChange">0 out of stock</span></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>All Books</h5>
+                <div>
+                    <button class="btn btn-blue" id="manageGenresBtn">🏷️ Manage Genres</button>
+                    <button class="btn btn-green" id="addBookBtn">➕ Add Book</button>
+                </div>
+            </div>
+            <div class="table-wrapper">
+                <table class="table-custom">
+                    <thead>
+                        <tr>
+                            <th>BOOK ID</th>
+                            <th>TITLE</th>
+                            <th>AUTHOR</th>
+                            <th>GENRE</th>
+                            <th>PRICE</th>
+                            <th>STOCK</th>
+                            <th>SOLD</th>
+                            <th>♥ WISHLISTS</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="booksTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="manageGenresModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h5>Manage Genres</h5>
+                <button type="button" class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newGenre">Add New Genre</label>
+                    <div class="input-row">
+                        <input type="text" id="newGenre" placeholder="Enter genre name">
+                        <button class="btn btn-green" type="button" id="addGenreBtn">Add</button>
+                    </div>
+                </div>
+                <div>
+                    <label>Current Genres</label>
+                    <div id="genresList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="addBookModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h5>Add New Book</h5>
+                <button type="button" class="modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="bookTitle">Title</label>
+                    <input type="text" id="bookTitle" placeholder="Enter book title">
+                </div>
+                <div class="form-group">
+                    <label for="bookAuthor">Author</label>
+                    <input type="text" id="bookAuthor" placeholder="Enter author name">
+                </div>
+                <div class="form-group">
+                    <label for="bookGenre">Genre</label>
+                    <select id="bookGenre"></select>
+                </div>
+                <div class="form-group">
+                    <label for="bookPrice">Price</label>
+                    <input type="text" id="bookPrice" placeholder="e.g., $12.99">
+                </div>
+                <div class="form-group">
+                    <label for="bookStock">Copies in stock</label>
+                    <input type="number" id="bookStock" placeholder="Enter number of copies" min="0">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-gray modal-close">Cancel</button>
+                <button type="button" class="btn btn-green" id="saveBookBtn">Add Book</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="scripts/users/user.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/users/books.js"></script>
+</body>
+</html>
