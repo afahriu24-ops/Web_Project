@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inkwell Books - Sign in</title>
+  <link rel="stylesheet" href="style/login.css" />
+  <link rel="stylesheet" href="style/inkwell.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="auth-page">
+
+  <aside class="auth-aside">
+    <a href="shop.html" class="brand-link"><span class="brand-mark" aria-hidden="true">I</span>Inkwell Books</a>
+    <div class="auth-aside-copy">
+      <p class="auth-eyebrow">FOR READERS, BY READERS</p>
+      <h2>Your next<br>favorite book<br>is waiting.</h2>
+      <p>Stories and ideas for every shelf, all in one place.</p>
+    </div>
+    <p class="auth-aside-foot">Every book is a small adventure.</p>
+  </aside>
+  <div class="card">
+    <div class="header">
+      <div class="logo">
+        I
+      </div>
+      <h1>Welcome back</h1>
+      <p>Sign in to your account</p>
+    </div>
+
+    <div class="form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="••••••••" />
+      </div>
+
+      <button id="sign-in-button" type="button">Sign in</button>
+    </div>
+
+    <p class="footer">Don't have an account? <a href="register.html">Create one</a></p>
+  </div>
+  <script src="scripts/users/user.js"></script>
+  <script src="scripts/storage.js"></script>
+  <script src="scripts/login.js"></script>
+</body>
+</html>
