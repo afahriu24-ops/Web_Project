@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inkwell Books - Shop</title>
+    <link rel="stylesheet" href="style/shop.css" />
+    <link rel="stylesheet" href="style/inkwell.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="shop-page">
+
+
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon" aria-hidden="true">
+        I
+      </div>
+      <span class="nav-logo-text">Inkwell Books</span>
+    </a>
+
+    <div class="nav-search">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search title or author…" />
+    </div>
+
+    <div class="nav-actions">
+      
+
+      <button class="nav-btn" title="Account" id="account_button">
+        <span class="nav-icon">👤</span>
+        <span id="account_label">Account</span>
+      </button>
+ 
+      <button class="nav-btn" title="Cart" id="cart_button">
+        <span class="nav-icon">🛒</span>
+      </button>
+      <div id="cart_panel" class="cart-panel hidden">
+        <div class="cart-panel-header">
+          <h4>Your bag</h4>
+          <button id="cart_close" class="cart-close">×</button>
+        </div>
+        <div id="cart_items" class="cart-items"></div>
+        <div class="cart-total" id="cart_total">
+          <span>Final price:</span>
+          <strong>$0.00</strong>
+        </div>
+        <div class="cart-panel-footer">
+          <button id="checkout_button" class="btn-primary" disabled>Checkout</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="shop-header">
+    <p class="shop-kicker">BOOKS WORTH THE SHELF SPACE</p>
+    <h1>Good books,<br>chosen well.</h1>
+    <p class="shop-intro">A small, considered collection of stories and ideas. Find your next favorite read.</p>
+  </header>
+
+
+  <div class="store-layout" id="products">
+
+  
+    <aside class="sidebar">
+      <div class="sidebar-section">
+        <p class="sidebar-title">Genres</p>
+        <ul class="category-list">
+          
+        </ul>
+      </div>
+    </aside>
+
+
+    <main class="main-content">
+
+
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <span class="results-count">0 books</span>
+        </div>
+      </div>
+
+  
+      <div class="product-grid">
+
+      </div>
+
+    </main>
+  </div>
+  <script src="scripts/users/user.js"></script>
+  <script src="scripts/storage.js"></script>
+  <script src="scripts/shop.js"></script>
+</body>
+</html>
